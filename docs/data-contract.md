@@ -1,3 +1,5 @@
+Este documento define el contrato de datos estructurado (JSON Schema) utilizado por el motor de IA para procesar e intercambiar información entre los módulos de ingesta, almacenamiento y visualización.
+
 1. metadata
 Información técnica sobre el origen del archivo y el procesamiento realizado.
     source_channel
