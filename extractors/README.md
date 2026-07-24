@@ -1,0 +1,1 @@
+responsable de convertir los documentos / imagenes a texto

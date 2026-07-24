@@ -1,0 +1,1 @@
+Responsables de comunicarse con el LLM
