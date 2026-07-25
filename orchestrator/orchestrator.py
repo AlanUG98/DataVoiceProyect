@@ -1,12 +1,16 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 from extractors.image_extractor import AgenteOCR
 from extractors.markitdown_extractor import AgenteDocumentos
 
 class DocumentOrchestrator:
-    def __init__(self):
+    def __init__(self, api_key: str):
+        
         self.agente_doc = AgenteDocumentos()
-        self.agente_ocr = AgenteOCR()   
+        self.agente_ocr = AgenteOCR(api_key=api_key)  
         self.formatos_doc = ('.pdf', '.xlsx', '.xls', '.docx', '.pptx', '.csv')
         self.formatos_img = ('.png', '.jpg', '.jpeg')
 
@@ -20,7 +24,7 @@ class DocumentOrchestrator:
         _, ext = os.path.splitext(ruta_archivo.lower())
         print(f"\n[Orquestador] Evaluando archivo: {ruta_archivo} (Ext: {ext})")
 
-        #Agregar al README En una versión productiva estos mensajes serían gestionados mediante el módulo logging."
+        #Agregare al README que en una versión productiva estos mensajes serían gestionados mediante el módulo logging."
         # Decisiones del Orquestador
         if ext in self.formatos_doc:
             print("[Orquestador] -> Enviando al módulo: mod_documentos")
@@ -31,12 +35,13 @@ class DocumentOrchestrator:
         else:
             return f"[Orquestador] -> Error: Formato '{ext}' no soportado."
 
-# --- Simulación de ejecución ---
+#main para pruebas
 if __name__ == "__main__":
-    orquestador = DocumentOrchestrator()
+    API_KEY = os.getenv("GOOGLE_API_KEY")
+    orquestador = DocumentOrchestrator(api_key=API_KEY)
 
-    archivo = r"data/input/archivoprueba1.pdf"
-    #archivo =  r"data/input/imagenprueba1.png"
+    #archivo = r"data/input/archivoprueba1.pdf"
+    archivo =  r"data/input/imagenprueba1.png"
 
     resultado = orquestador.enrutar_y_procesar(archivo)
 

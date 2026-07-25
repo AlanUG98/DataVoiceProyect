@@ -1,1 +1,3 @@
-"markitdown[all]"
+'markitdown[all]'
+opeanai
+python-dotenv
