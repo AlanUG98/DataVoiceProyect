@@ -1,5 +1,5 @@
 markitdown[all]
-openai
 python-dotenv
 streamlit
 pandas
+openai

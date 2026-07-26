@@ -11,7 +11,7 @@ from ai.client import AIClient
 from database.sqlite_manager import SQLiteManager
 
 class DocumentOrchestrator:
-    def __init__(self, api_key: str, db_path: str = "data/base_datos.db"):
+    def __init__(self, api_key: str, db_path: str = "database/base_datos.db"):
         
         self.agente_doc = AgenteDocumentos()
         self.agente_ocr = AgenteOCR(api_key=api_key)  

@@ -24,7 +24,7 @@ def obtener_orquestador():
 
 @st.cache_resource
 def obtener_db():
-    return SQLiteManager("data/base_datos.db")
+    return SQLiteManager("database/base_datos.db")
 
 orquestador = obtener_orquestador()
 db = obtener_db()
