@@ -40,8 +40,8 @@ if __name__ == "__main__":
     API_KEY = os.getenv("GOOGLE_API_KEY")
     orquestador = DocumentOrchestrator(api_key=API_KEY)
 
-    #archivo = r"data/input/archivoprueba1.pdf"
-    archivo =  r"data/input/imagenprueba1.png"
+    archivo = r"data/input/archivoprueba1.pdf"
+    #archivo =  r"data/input/imagenprueba1.png"
 
     resultado = orquestador.enrutar_y_procesar(archivo)
 

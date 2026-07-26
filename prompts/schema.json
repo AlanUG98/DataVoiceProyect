@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "source_channel": "WhatsApp",
+    "source_original_filename": "incidencia24.pdf",
+    "source_file_type": "application/pdf",
+    "received_at": "2026-07-24T11:42:00",
+    "processed_at": "2026-07-24T14:30:00"
+  },
+  "classification": {
+    "request_type": "Incidencia de Tránsito",
+    "confidence_score": 0.95
+  },
+  "extracted_data": {
+    "reference_id": "MX-98234-LOG",
+    "customer": {
+      "name": "Alan Urbina",
+      "company": "Distribuidora del Norte S.A. de C.V."
+    },
+    "affected_units": ["T-502", "REM-12"],
+    "key_entities": {
+      "origen": "Querétaro",
+      "destino": "Laredo",
+      "retraso_estimado": "3 horas"
+    }
+  },
+  "risk_and_priority": {
+    "priority": "Alta",
+    "risk_category": "Retraso Crítico"
+  },
+  "executive_summary": "El transporte T-502 con destino a Laredo reporta un bloqueo carretero en la carretera Mex-Qro. Presenta un retraso estimado de 3 horas, lo que pone en riesgo la ventana de entrega pactada para las 17:00 hrs.",
+  "recommended_action": {
+    "action_type": "Notificar_Cliente_y_Reprogramar",
+    "action_details": [
+      "Informar a la bodega receptora sobre la nueva hora estimada de llegada (20:00 hrs).",
+      "Verificar con la aseguradora la activación del protocolo de monitoreo nocturno.",
+      "Ajustar la ventana de cita en el portal de entregas."
+    ]
+  },
+  "proposed_response": "Estimado cliente, confirmamos la recepción de su reporte respecto al embarque MX-98234-LOG. Nuestro equipo de monitoreo ya está dando seguimiento a la incidencia en la ruta Querétaro-Laredo. Le mantendremos informado sobre el nuevo horario estimado de arribo tan pronto la unidad reanude su trayecto. Saludos cordiales."
+}
