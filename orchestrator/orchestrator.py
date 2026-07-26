@@ -25,7 +25,7 @@ class DocumentOrchestrator:
 
 
 
-    def enrutar_y_procesar(self, ruta_archivo, guardar_en_bd: bool):
+    def enrutar_y_procesar(self, ruta_archivo, guardar_en_bd: bool = True):
         if not os.path.exists(ruta_archivo):
             return f"Error: El archivo '{ruta_archivo}' no existe."
 
@@ -62,14 +62,6 @@ if __name__ == "__main__":
     archivo =  r"data/input/imagenprueba1.png"
 
     resultado = orquestador.enrutar_y_procesar(archivo, True)
-    
-
-    #guardar el resultado
     outputfile = "data/output/"
-    #with open(outputfile + "promptFinal.md", "w", encoding="utf-8") as save:
-    #with open(outputfile + "RespuestaIA.md", "w", encoding="utf-8") as save:
-    #    save.write(resultado)
     with open(outputfile + "RespuestaIA.json", "w", encoding="utf-8") as save:
         json.dump(resultado, save, indent=4, ensure_ascii=False)
-
-    #print(resultado)
