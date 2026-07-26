@@ -5,12 +5,14 @@ load_dotenv()
 
 from extractors.image_extractor import AgenteOCR
 from extractors.markitdown_extractor import AgenteDocumentos
+from ai.prompt_manager import PromptManager
 
 class DocumentOrchestrator:
     def __init__(self, api_key: str):
         
         self.agente_doc = AgenteDocumentos()
         self.agente_ocr = AgenteOCR(api_key=api_key)  
+        self.prompt_manager = PromptManager()
         self.formatos_doc = ('.pdf', '.xlsx', '.xls', '.docx', '.pptx', '.csv')
         self.formatos_img = ('.png', '.jpg', '.jpeg')
 
@@ -25,15 +27,17 @@ class DocumentOrchestrator:
         print(f"\n[Orquestador] Evaluando archivo: {ruta_archivo} (Ext: {ext})")
 
         #Agregare al README que en una versión productiva estos mensajes serían gestionados mediante el módulo logging."
-        # Decisiones del Orquestador
         if ext in self.formatos_doc:
             print("[Orquestador] -> Enviando al módulo: mod_documentos")
-            return self.agente_doc.extraer_texto(ruta_archivo)
+            texto_extraido = self.agente_doc.extraer_texto(ruta_archivo)
         elif ext in self.formatos_img:
             print("[Orquestador] -> Enviando al módulo: mod_imagenes")
-            return self.agente_ocr.extraer_texto(ruta_archivo)
+            texto_extraido = self.agente_ocr.extraer_texto(ruta_archivo)
         else:
             return f"[Orquestador] -> Error: Formato '{ext}' no soportado."
+
+        prompt = self.prompt_manager.construir_prompt(texto_extraido)
+        return prompt
 
 #main para pruebas
 if __name__ == "__main__":
@@ -47,6 +51,6 @@ if __name__ == "__main__":
 
     #guardar el resultado
     outputfile = "data/output/"
-    with open(outputfile + "salida.md", "w", encoding="utf-8") as save:
+    with open(outputfile + "promptFinal.md", "w", encoding="utf-8") as save:
         save.write(resultado)
     #print(resultado)
