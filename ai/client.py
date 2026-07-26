@@ -19,13 +19,13 @@ class AIClient:
             ]
         )
 
-        # --- LOG PARA VER EL OBJETO COMPLETO ---
-        print("\n=== [DEBUG] RESPUESTA COMPLETA DEL LLM ===")
-        # .model_dump_json() convierte el objeto de la API en un texto JSON limpio
-        print(json.dumps(json.loads(response.model_dump_json()), indent=4, ensure_ascii=False))
-        print("==========================================\n")
-        # ----------------------------------------
 
         respuesta = response.choices[0].message.content
         respuesta_json = json.loads(respuesta)
+        respuesta_json["processing"] = {
+            "model_used": response.model,
+            "tokens_input": response.usage.prompt_tokens,
+            "tokens_output": response.usage.completion_tokens,
+            "total_tokens": response.usage.total_tokens
+        }
         return respuesta_json

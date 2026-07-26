@@ -1,27 +1,24 @@
                       Usuario
                           │
                           ▼
-                 Streamlit Interface
-                          │
-                          ▼
                 Document Orchestrator
                           │
           ┌───────────────┴───────────────┐
           ▼                               ▼
-    MarkItDown                     OCR (Vision)
+    MarkItDown                   Markitdown + gemini
           │                               │
           └───────────────┬───────────────┘
                           ▼
-                 Normalized Text
+                   Texto Markitdwon
                           │
                           ▼
-                  Prompt Manager
+                   Prompt Manager
                           │
                           ▼
-                    OpenAI Client
+                   Prompt Final
                           │
                           ▼
-                Response Validator
+                        AIClient
                           │
                           ▼
                      SQLite Storage
